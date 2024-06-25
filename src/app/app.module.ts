@@ -11,6 +11,7 @@ import { EmissionModule } from './emission/emission.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { RolesGuard } from './auth/guards/roles.guard';
+import { CompanyModule } from './company/company.module';
 
 @Module({
   imports: [
@@ -49,7 +50,8 @@ import { RolesGuard } from './auth/guards/roles.guard';
     ]),
     EmissionModule,
     AuthModule,
-    UserModule
+    UserModule,
+    CompanyModule
   ],
   controllers: [AppResolver],
   providers: [AppService],
