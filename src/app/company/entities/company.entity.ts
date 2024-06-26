@@ -1,10 +1,10 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
 import { Schema as MongooseSchema } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { User } from '../../user/entities/user.entity';
 
 @ObjectType()
-@Schema()
+@Schema({timestamps: true})
 export class Company {
   @Field(() => String)
   _id: MongooseSchema.Types.ObjectId;
@@ -15,7 +15,7 @@ export class Company {
 
   @Field(() => [User])
   @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'User' }]})
-  employees: User[];
+  employees: MongooseSchema.Types.ObjectId[];
 
   @Field(() => Date)
   @Prop({ required: true, default: Date.now})

@@ -22,7 +22,6 @@ export class UserResolver {
     return this.userService.createUser(createUserInput);
   }
 
-  @Roles(Role.HEAD)
   @UseGuards(GqlAuthGuard, RolesGuard)
   @Query(() => [User], { name: 'users' })
   getAllUsers() {
