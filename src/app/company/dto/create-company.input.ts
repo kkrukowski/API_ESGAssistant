@@ -5,7 +5,4 @@ import { User } from '../../user/entities/user.entity';
 export class CreateCompanyInput {
   @Field(() => String)
   name: string;
-
-  // @Field(() => [User])
-  // employees: User[];
 }

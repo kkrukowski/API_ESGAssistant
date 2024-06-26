@@ -36,6 +36,10 @@ export class User {
   @Field(() => String)
   @Prop({ required: true })
   company: string;
+
+  @Field(() => Date)
+  @Prop({ required: true, default: Date.now})
+  createdAt: Date;
 }
 
 export type UserDocument = User & Document;

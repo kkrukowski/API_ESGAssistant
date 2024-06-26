@@ -13,13 +13,13 @@ export class Company {
   @Prop({ required: true })
   name: string;
 
-  // @Field(() => [User])
-  // @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'User' }]})
-  // employees: User[];
+  @Field(() => [User])
+  @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'User' }]})
+  employees: User[];
 
-  // @Field(() => Date)
-  // @Prop({ required: true })
-  // createdDate: string;
+  @Field(() => Date)
+  @Prop({ required: true, default: Date.now})
+  createdAt: Date;
 }
 
 export type CompanyDocument = Company & Document;
